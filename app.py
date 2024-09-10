@@ -1,6 +1,14 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
+CORS(app)
+app.debug = True
+
+
+@app.route("/")
+def hello_world():
+    return "<p>Hello, World!</p>"
 
 
 @app.route('/receive_request', methods=['POST'])
